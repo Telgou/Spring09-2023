@@ -13,5 +13,28 @@ public class Reservation implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date anneeUniversitaire;
     private Boolean estValide;
-// Constructeur et accesseurs (getters) et mutateurs (setters)
+    // Constructeur et accesseurs (getters) et mutateurs (setters)
+    public String getIdReservation() {
+        return idReservation;
+    }
+
+    public void setIdReservation(String idReservation) {
+        this.idReservation = idReservation;
+    }
+
+    public Date getAnneeUniversitaire() {
+        return anneeUniversitaire;
+    }
+
+    public void setAnneeUniversitaire(Date anneeUniversitaire) {
+        this.anneeUniversitaire = anneeUniversitaire;
+    }
+
+    public Boolean getEstValide() {
+        return estValide;
+    }
+
+    public void setEstValide(Boolean estValide) {
+        this.estValide = estValide;
+    }
 }

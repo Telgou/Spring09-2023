@@ -12,6 +12,30 @@ public class Chambre implements Serializable {
     @Column(name="idChambre")
     private Long idChambre;
     private Long numeroChambre;
+    @Enumerated(EnumType.STRING)
     private TypeChambre typeC;
-// Constructeur et accesseurs (getters) et mutateurs (setters)
+    // Constructeur et accesseurs (getters) et mutateurs (setters)
+    public Long getIdChambre() {
+        return idChambre;
+    }
+
+    public void setIdChambre(Long idChambre) {
+        this.idChambre = idChambre;
+    }
+
+    public Long getNumeroChambre() {
+        return numeroChambre;
+    }
+
+    public void setNumeroChambre(Long numeroChambre) {
+        this.numeroChambre = numeroChambre;
+    }
+
+    public TypeChambre getTypeC() {
+        return typeC;
+    }
+
+    public void setTypeC(TypeChambre typeC) {
+        this.typeC = typeC;
+    }
 }

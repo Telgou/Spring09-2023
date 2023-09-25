@@ -13,4 +13,28 @@ public class Foyer implements Serializable {
     private String nomFoyer;
     private Long capaciteFoyer;
 // Constructeur et accesseurs (getters) et mutateurs (setters)
+
+    public Long getIdFoyer() {
+        return idFoyer;
+    }
+
+    public void setIdFoyer(Long idFoyer) {
+        this.idFoyer = idFoyer;
+    }
+
+    public String getNomFoyer() {
+        return nomFoyer;
+    }
+
+    public void setNomFoyer(String nomFoyer) {
+        this.nomFoyer = nomFoyer;
+    }
+
+    public Long getCapaciteFoyer() {
+        return capaciteFoyer;
+    }
+
+    public void setCapaciteFoyer(Long capaciteFoyer) {
+        this.capaciteFoyer = capaciteFoyer;
+    }
 }
