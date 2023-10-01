@@ -14,7 +14,7 @@ public class Foyer implements Serializable {
     private String nomFoyer;
     private Long capaciteFoyer;
 
-    
+
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "foyer")
     private Set<Bloc> bloc;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "foyer")
