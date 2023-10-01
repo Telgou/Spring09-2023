@@ -2,6 +2,7 @@ package com.example.spring092023.entities;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table( name = "Universite")
@@ -12,7 +13,17 @@ public class Universite implements Serializable {
     private Long idUniversite;
     private String nomUniversite;
     private String adresse;
+
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Foyer foyer;
+
+
+
+
+
     // Constructeur et accesseurs (getters) et mutateurs (setters)
+
     public Long getIdUniversite() {
         return idUniversite;
     }

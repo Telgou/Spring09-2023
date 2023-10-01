@@ -2,6 +2,7 @@ package com.example.spring092023.entities;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table( name = "Foyer")
@@ -13,9 +14,14 @@ public class Foyer implements Serializable {
     private String nomFoyer;
     private Long capaciteFoyer;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "foyer")
     private Set<Bloc> bloc;
-// Constructeur et accesseurs (getters) et mutateurs (setters)
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "foyer")
+    private Universite universite;
+
+
+    // Constructeur et accesseurs (getters) et mutateurs (setters)
 
     public Long getIdFoyer() {
         return idFoyer;

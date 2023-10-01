@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table( name = "Reservation")
@@ -14,11 +15,16 @@ public class Reservation implements Serializable {
     private Date anneeUniversitaire;
     private Boolean estValide;
 
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Etudiant> etudiants;
     @ManyToOne(cascade = CascadeType.ALL)
     Chambre chambre;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    private Set<Etudiant> etudiant;
+
+
+
+
 
     // Constructeur et accesseurs (getters) et mutateurs (setters)
     public String getIdReservation() {
