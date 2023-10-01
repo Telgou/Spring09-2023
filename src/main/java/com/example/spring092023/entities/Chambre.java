@@ -14,6 +14,10 @@ public class Chambre implements Serializable {
     private Long numeroChambre;
     @Enumerated(EnumType.STRING)
     private TypeChambre typeC;
+
+    
+    @ManyToOne(cascade = CascadeType.ALL)
+    Bloc bloc;
     // Constructeur et accesseurs (getters) et mutateurs (setters)
     public Long getIdChambre() {
         return idChambre;

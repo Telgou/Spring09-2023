@@ -12,6 +12,10 @@ public class Bloc implements Serializable {
     private Long idBloc;
     private String nomBloc;
     private Long capaciteBloc;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Chambre> chambre;
+
     // Constructeur et accesseurs (getters) et mutateurs (setters)
     public Long getIdBloc() {
         return idBloc;

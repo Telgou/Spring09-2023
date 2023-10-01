@@ -13,6 +13,13 @@ public class Reservation implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date anneeUniversitaire;
     private Boolean estValide;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    Chambre chambre;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Etudiant> etudiant;
+
     // Constructeur et accesseurs (getters) et mutateurs (setters)
     public String getIdReservation() {
         return idReservation;

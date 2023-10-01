@@ -12,6 +12,9 @@ public class Foyer implements Serializable {
     private Long idFoyer;
     private String nomFoyer;
     private Long capaciteFoyer;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Bloc> bloc;
 // Constructeur et accesseurs (getters) et mutateurs (setters)
 
     public Long getIdFoyer() {

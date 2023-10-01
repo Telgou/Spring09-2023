@@ -18,6 +18,9 @@ public class Etudiant implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dateNaissance;
 
+    @ManyToMany(mappedBy="etudiant", cascade = CascadeType.ALL)
+    private Set<Reservation> reservation;
+
     // Constructeur et accesseurs (getters) et mutateurs (setters)
     public Long getIdEtudiant() {
         return idEtudiant;
@@ -66,4 +69,5 @@ public class Etudiant implements Serializable {
     public void setDateNaissance(Date dateNaissance) {
         this.dateNaissance = dateNaissance;
     }
+    
 }
