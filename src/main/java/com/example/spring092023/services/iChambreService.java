@@ -1,0 +1,18 @@
+package com.example.spring092023.services;
+
+import com.example.spring092023.entities.Chambre;
+
+import java.util.List;
+
+public interface iChambreService {
+    List<Chambre> retrieveAllChambers();
+
+    Chambre addCahmre(Chambre e);
+
+    Chambre updateChambre(Chambre e);
+
+    Chambre retrieveChambre(Long idChambre);
+
+    void removeChambre(Long idChambre);
+
+}

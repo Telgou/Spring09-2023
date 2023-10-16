@@ -1,11 +1,41 @@
 package com.example.spring092023.services;
 
-import com.example.spring092023.repositories.Blocrepo;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import com.example.spring092023.entities.Bloc;
+import com.example.spring092023.repositories.BlocRepository;
 
+import java.util.List;
 @Service
-public class BlocService {
-    @Autowired
-    Blocrepo blocrepo;
+@AllArgsConstructor
+public class BlocService implements iBlocService{
+    //    EtudiantRespository etudiantRespository;
+
+    BlocRepository blocRepository;
+
+    @Override
+    public List<Bloc> retrieveAllBlocs() {
+        return blocRepository.findAll();
+    }
+
+    @Override
+    public Bloc addBloc(Bloc e) {
+        return blocRepository.save(e);
+    }
+
+    @Override
+    public Bloc updateBloc(Bloc e) {
+        return blocRepository.save(e);
+    }
+
+    @Override
+    public Bloc retrieveBloc(Long idBloc) {
+        return blocRepository.findById(idBloc).get();
+    }
+
+    @Override
+    public void removeBloc(Long idBloc) {
+        blocRepository.deleteById(idBloc);
+
+    }
 }
