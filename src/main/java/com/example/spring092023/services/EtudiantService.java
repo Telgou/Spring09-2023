@@ -18,8 +18,8 @@ public class EtudiantService implements iEtudiantService{
     }
 
     @Override
-    public Etudiant addEtudiant(Etudiant e) {
-        return etudiantRespository.save(e);
+    public Etudiant addEtudiant(Etudiant etudiant) {
+        return etudiantRespository.save(etudiant);
     }
 
     @Override
@@ -35,6 +35,9 @@ public class EtudiantService implements iEtudiantService{
     @Override
     public void removeEtudiant(Long idEtudiant) {
         etudiantRespository.deleteById(idEtudiant);
+    }
 
+    public void addEtudiants(List<Etudiant> etudiants){
+        etudiantRespository.saveAll(etudiants);
     }
 }

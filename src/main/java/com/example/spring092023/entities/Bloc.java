@@ -2,6 +2,7 @@ package com.example.spring092023.entities;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -15,9 +16,9 @@ public class Bloc implements Serializable {
     private Long capaciteBloc;
 
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy="bloc")
-    private Set<Chambre> chambres;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL ,mappedBy="bloc")
+    private List<Chambre> chambres;
+    @ManyToOne()
     Foyer foyer;
 
 
@@ -43,6 +44,13 @@ public class Bloc implements Serializable {
     public Long getCapaciteBloc() {
         return capaciteBloc;
     }
+    public List<Chambre> getchambreslist() {
+        return chambres;
+    }
+    public void setchambres(List<Chambre> chambres) {
+        this.chambres = chambres;
+    }
+
 
     public void setCapaciteBloc(Long capaciteBloc) {
         this.capaciteBloc = capaciteBloc;

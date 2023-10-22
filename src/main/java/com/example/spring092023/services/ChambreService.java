@@ -1,5 +1,7 @@
 package com.example.spring092023.services;
 
+import com.example.spring092023.entities.Bloc;
+import com.example.spring092023.repositories.BlocRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import com.example.spring092023.entities.Chambre;
@@ -11,13 +13,14 @@ import java.util.List;
 public class ChambreService implements iChambreService{
 
     ChambreRepository chambreRepository;
+    BlocRepository blocRepository;
     @Override
     public List<Chambre> retrieveAllChambers() {
         return chambreRepository.findAll();
     }
 
     @Override
-    public Chambre addCahmre(Chambre e) {
+    public Chambre addChambre(Chambre e) {
         return chambreRepository.save(e);
     }
 
@@ -36,4 +39,19 @@ public class ChambreService implements iChambreService{
         chambreRepository.deleteById(idChambre);
 
     }
+
+    @Override
+    public Bloc affecterChambresABloc(List<Long> numChambre, String nomBloc) {
+        Bloc bloc = blocRepository.findBlocByNomBloc(nomBloc);
+        List<Chambre> chambres = chambreRepository.findAllById(numChambre);
+
+        for (Chambre chambre : chambres) {
+            chambre.setBloc(bloc);
+        }
+        chambreRepository.saveAll(chambres);
+        return blocRepository.save(bloc);
+    }
+
+
+
 }

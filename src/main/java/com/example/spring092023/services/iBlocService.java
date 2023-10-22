@@ -15,4 +15,5 @@ public interface iBlocService {
     Bloc retrieveBloc(Long idBloc);
 
     void removeBloc(Long idBloc);
+
 }
