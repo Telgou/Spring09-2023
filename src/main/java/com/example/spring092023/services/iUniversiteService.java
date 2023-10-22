@@ -6,7 +6,6 @@ import java.util.List;
 
 public interface iUniversiteService {
 
-
     List<Universite> retrieveAllUniversites();
 
     Universite addUniversites(Universite e);

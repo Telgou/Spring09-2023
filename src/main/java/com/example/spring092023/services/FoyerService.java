@@ -10,20 +10,20 @@ import java.util.List;
 @AllArgsConstructor
 public class FoyerService implements iFoyerService{
 
-    FoyerRespository foyerRespository;
+    private final FoyerRespository foyerRespository;
     @Override
     public List<Foyer> retrieveAllFoyers() {
         return foyerRespository.findAll();
     }
 
     @Override
-    public Foyer addFoyer(Foyer e) {
-        return foyerRespository.save(e);
+    public Foyer addFoyer(Foyer f) {
+        return foyerRespository.save(f);
     }
 
     @Override
-    public Foyer updateFoyer(Foyer e) {
-        return foyerRespository.save(e);
+    public Foyer updateFoyer(Foyer f) {
+        return foyerRespository.save(f);
     }
 
     @Override
@@ -34,6 +34,10 @@ public class FoyerService implements iFoyerService{
     @Override
     public void removeFoyer(Long idFoyer) {
         foyerRespository.deleteById(idFoyer);
-
     }
+    public void archiverFoyer (long idFoyer){
+        Foyer foyer = foyerRespository.findById(idFoyer).get();
+        foyer.setArchived();
+        foyerRespository.save(foyer);
+    };
 }

@@ -14,4 +14,5 @@ public interface iFoyerService {
     Foyer retrieveFoyer(Long idFoyer);
 
     void removeFoyer(Long idFoyer);
+    void archiverFoyer (long idFoyer);
 }

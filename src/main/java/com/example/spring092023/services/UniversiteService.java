@@ -21,8 +21,8 @@ public class UniversiteService implements iUniversiteService{
     }
 
     @Override
-    public Universite updateUniversites(Universite e) {
-        return universiteRepository.save(e);
+    public Universite updateUniversites(Universite u) {
+        return universiteRepository.save(u);
     }
 
     @Override

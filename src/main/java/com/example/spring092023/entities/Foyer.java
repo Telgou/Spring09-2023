@@ -13,11 +13,11 @@ public class Foyer implements Serializable {
     private Long idFoyer;
     private String nomFoyer;
     private Long capaciteFoyer;
+    private boolean archived = false;
 
-
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "foyer")
+    @OneToMany(mappedBy = "foyer")
     private Set<Bloc> bloc;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "foyer")
+    @OneToOne(mappedBy = "foyer")
     private Universite universite;
 
 
@@ -45,5 +45,8 @@ public class Foyer implements Serializable {
 
     public void setCapaciteFoyer(Long capaciteFoyer) {
         this.capaciteFoyer = capaciteFoyer;
+    }
+    public void setArchived() {
+        this.archived = true;
     }
 }

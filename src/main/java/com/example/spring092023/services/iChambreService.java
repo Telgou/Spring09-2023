@@ -7,7 +7,7 @@ import java.util.List;
 public interface iChambreService {
     List<Chambre> retrieveAllChambers();
 
-    Chambre addCahmre(Chambre e);
+    Chambre addChambre(Chambre e);
 
     Chambre updateChambre(Chambre e);
 
