@@ -39,19 +39,4 @@ public class ChambreService implements iChambreService{
         chambreRepository.deleteById(idChambre);
 
     }
-
-    @Override
-    public Bloc affecterChambresABloc(List<Long> numChambre, String nomBloc) {
-        Bloc bloc = blocRepository.findBlocByNomBloc(nomBloc);
-        List<Chambre> chambres = chambreRepository.findAllById(numChambre);
-
-        for (Chambre chambre : chambres) {
-            chambre.setBloc(bloc);
-        }
-        chambreRepository.saveAll(chambres);
-        return blocRepository.save(bloc);
-    }
-
-
-
 }

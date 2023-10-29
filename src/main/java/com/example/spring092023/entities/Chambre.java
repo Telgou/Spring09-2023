@@ -19,7 +19,7 @@ public class Chambre implements Serializable {
 
     @OneToMany()
     private Set<Reservation> Reservations;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     Bloc bloc;
 
 
