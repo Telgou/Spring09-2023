@@ -14,8 +14,5 @@ import java.util.List;
 @RequestMapping("/blocs")
 public class BlocController {
     private BlocService blocService;
-<<<<<<< HEAD
 
-=======
->>>>>>> fdfcbf6a48b2071813d968accdee75a0ece7e492
 }

@@ -20,5 +20,4 @@ public class ChambreController {
         return chambreService.affecterChambresABloc(numchambre,nombloc);
     }
 
-    private ChambreService chambreService;
 }
