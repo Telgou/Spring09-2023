@@ -1,12 +1,21 @@
 package controller;
 
+import com.example.spring092023.entities.Bloc;
+import com.example.spring092023.entities.Universite;
+import com.example.spring092023.services.BlocService;
+import com.example.spring092023.services.UniversiteService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.RestController;
-import com.example.spring092023.repositories.BlocRepository;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 @RestController
 @AllArgsConstructor
 @RequestMapping("/blocs")
-@RequestMapping("/blocs")
 public class BlocController {
-    private BlocRepository blocService;
+    private BlocService blocService;
+<<<<<<< HEAD
+
+=======
+>>>>>>> fdfcbf6a48b2071813d968accdee75a0ece7e492
 }
