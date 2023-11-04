@@ -1,11 +1,18 @@
 package com.example.spring092023.entities;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Set;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table( name = "Bloc")
 public class Bloc implements Serializable {
     @Id
@@ -23,36 +30,12 @@ public class Bloc implements Serializable {
 
 
 
-
     // Constructeur et accesseurs (getters) et mutateurs (setters)
-    public Long getIdBloc() {
-        return idBloc;
-    }
 
-    public void setIdBloc(Long idBloc) {
-        this.idBloc = idBloc;
-    }
-
-    public String getNomBloc() {
-        return nomBloc;
-    }
-
-    public void setNomBloc(String nomBloc) {
-        this.nomBloc = nomBloc;
-    }
-
-    public Long getCapaciteBloc() {
-        return capaciteBloc;
-    }
     public List<Chambre> getchambreslist() {
         return chambres;
     }
     public void setchambres(List<Chambre> chambres) {
         this.chambres = chambres;
-    }
-
-
-    public void setCapaciteBloc(Long capaciteBloc) {
-        this.capaciteBloc = capaciteBloc;
     }
 }
