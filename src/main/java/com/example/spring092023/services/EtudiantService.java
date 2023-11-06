@@ -1,16 +1,22 @@
 package com.example.spring092023.services;
 
+import com.example.spring092023.entities.Foyer;
+import com.example.spring092023.entities.Reservation;
+import com.example.spring092023.entities.Universite;
+import com.example.spring092023.repositories.ReservationRespository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import com.example.spring092023.entities.Etudiant;
 import com.example.spring092023.repositories.EtudiantRespository;
 
+import java.util.Arrays;
 import java.util.List;
 @Service
 @AllArgsConstructor
 public class EtudiantService implements iEtudiantService{
 
     EtudiantRespository etudiantRespository;
+    ReservationRespository reservationRespository;
 
     @Override
     public List<Etudiant> retrieveAllEtudiants() {
@@ -40,4 +46,14 @@ public class EtudiantService implements iEtudiantService{
     public void addEtudiants(List<Etudiant> etudiants){
         etudiantRespository.saveAll(etudiants);
     }
+
+    public Etudiant affecterEtudiantAReservation(String nomEt , String prenomEt , Long idReservation ){
+        Etudiant etudiant = etudiantRespository.findEtudiantByNomEtAndAndPrenomEt(nomEt,prenomEt);
+        Reservation reservation = reservationRespository.findById(idReservation).get();
+
+        List<Etudiant> etudiants = reservation.getEtudiants();
+        etudiant.setReservations(Arrays.asList(reservation));
+        return etudiantRespository.save(etudiant);
+    }
+
 }

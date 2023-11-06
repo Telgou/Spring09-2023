@@ -40,4 +40,9 @@ public class FoyerService implements iFoyerService{
         foyer.setArchived();
         foyerRespository.save(foyer);
     };
+
+    public Foyer addFoyerwithBloc(Foyer foyer){
+        return (foyerRespository.save(foyer));
+    }
+
 }

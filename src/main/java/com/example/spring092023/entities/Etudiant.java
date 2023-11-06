@@ -30,7 +30,7 @@ public class Etudiant implements Serializable {
 
 
     @ManyToMany(mappedBy="etudiants",fetch = FetchType.EAGER)
-    private Set<Reservation> reservations;
+    private List<Reservation> reservations;
 
 
 

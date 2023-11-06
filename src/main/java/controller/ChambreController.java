@@ -1,6 +1,7 @@
 package controller;
 
 import com.example.spring092023.entities.Bloc;
+import com.example.spring092023.entities.Chambre;
 import com.example.spring092023.services.ChambreService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -19,5 +20,10 @@ public class ChambreController {
         List<Long> numchambre = requestBody.get("numchambre");
         return chambreService.affecterChambresABloc(numchambre,nombloc);
     }
+    @PostMapping("/chambresbyblocnom/{nombloc}")
+    public List<Chambre> setchambres(@PathVariable("nombloc") String nombloc) {
+        return chambreService.getChambresParNomBloc(nombloc);
+    }
+
 
 }

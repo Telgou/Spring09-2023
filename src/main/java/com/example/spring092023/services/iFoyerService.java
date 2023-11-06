@@ -16,5 +16,5 @@ public interface iFoyerService {
     void removeFoyer(Long idFoyer);
     void archiverFoyer (long idFoyer);
 
-
+    Foyer addFoyerwithBloc(Foyer foyer);
 }

@@ -13,8 +13,8 @@ public interface ChambreRepository extends JpaRepository<Chambre,Long> {
     @Query("SELECT c FROM Chambre c JOIN c.Reservations r WHERE r.estValide = :estvalide")
     List<Chambre> findChambresByValidation(@Param("estvalide") boolean estValide);
 
-    @Query("SELECT c FROM Chambre c WHERE c.bloc.idBloc = :bid AND c.bloc.capaciteBloc > :mincapacity")
-    List<Chambre> findChambresByBlocAndCapacity(@Param("bid") Long blocId, @Param("mincapacity") Long minCapacity);
+    @Query("SELECT c FROM Chambre c WHERE c.bloc.nomBloc = :nombloc ")
+    List<Chambre> findChambreByBlocNomBloc(@Param("nombloc") String nombloc);
 
 
 }

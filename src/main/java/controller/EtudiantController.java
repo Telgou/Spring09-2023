@@ -42,4 +42,9 @@ public class EtudiantController {
         etudiantService.addEtudiants(etudiants);
     }
 
+    @PostMapping("/affecterreservation/{nom}/{prenom}/{id}")
+    public void affecterreservation(@PathVariable Long id,@PathVariable String nom,@PathVariable String prenom) {
+        etudiantService.affecterEtudiantAReservation(nom,prenom,id);
+    }
+
 }

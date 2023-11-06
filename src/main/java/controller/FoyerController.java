@@ -43,4 +43,10 @@ public class FoyerController {
     public void archiveFoyer(@PathVariable Long id) {
         foyerService.archiverFoyer(id);
     }
+
+    @PostMapping("/addfoyerbloc")
+    public Foyer addFoyerwithBloc(@RequestBody Foyer foyer) {
+        return foyerService.addFoyerwithBloc(foyer);
+    }
+
 }

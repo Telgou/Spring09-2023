@@ -52,6 +52,14 @@ public class ChambreService implements iChambreService{
         return blocRepository.save(bloc);
     }
 
+    @Override
+    public List<Chambre> getChambresParNomBloc ( String nomBloc ){
+        List<Chambre> chambres = chambreRepository.findChambreByBlocNomBloc(nomBloc);
+        return chambres;
+    }
+
+
+
 
 
 }
