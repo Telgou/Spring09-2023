@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -23,42 +24,11 @@ public class Foyer implements Serializable {
     private Long capaciteFoyer;
     private boolean archived = false;
 
-    @OneToMany(mappedBy = "foyer")
-    private Set<Bloc> bloc;
+    @OneToMany(cascade = CascadeType.ALL ,mappedBy = "foyer")
+    private List<Bloc> bloc;
     @OneToOne(mappedBy = "foyer")
     private Universite universite;
 
 
-    // Constructeur et accesseurs (getters) et mutateurs (setters)
 
-    public Long getIdFoyer() {
-        return idFoyer;
-    }
-
-    public void setIdFoyer(Long idFoyer) {
-        this.idFoyer = idFoyer;
-    }
-
-    public String getNomFoyer() {
-        return nomFoyer;
-    }
-
-    public void setNomFoyer(String nomFoyer) {
-        this.nomFoyer = nomFoyer;
-    }
-
-    public void setUniversite(Universite universite) {
-        this.universite = universite;
-    }
-
-    public Long getCapaciteFoyer() {
-        return capaciteFoyer;
-    }
-
-    public void setCapaciteFoyer(Long capaciteFoyer) {
-        this.capaciteFoyer = capaciteFoyer;
-    }
-    public void setArchived() {
-        this.archived = true;
-    }
 }

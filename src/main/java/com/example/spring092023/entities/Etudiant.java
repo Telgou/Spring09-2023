@@ -1,4 +1,5 @@
 package com.example.spring092023.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,61 +29,8 @@ public class Etudiant implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dateNaissance;
 
-
-    @ManyToMany(mappedBy="etudiants",fetch = FetchType.EAGER)
-    private Set<Reservation> reservations;
-
+    @ManyToMany(cascade = CascadeType.ALL ,mappedBy="etudiants",fetch = FetchType.EAGER)
+    private List<Reservation> reservations;
 
 
-
-
-    // Constructeur et accesseurs (getters) et mutateurs (setters)
-    public Long getIdEtudiant() {
-        return idEtudiant;
-    }
-
-    public void setIdEtudiant(Long idEtudiant) {
-        this.idEtudiant = idEtudiant;
-    }
-
-    public String getNomEt() {
-        return nomEt;
-    }
-
-    public void setNomEt(String nomEt) {
-        this.nomEt = nomEt;
-    }
-
-    public String getPrenomEt() {
-        return prenomEt;
-    }
-
-    public void setPrenomEt(String prenomEt) {
-        this.prenomEt = prenomEt;
-    }
-
-    public Long getCin() {
-        return cin;
-    }
-
-    public void setCin(Long cin) {
-        this.cin = cin;
-    }
-
-    public String getEcole() {
-        return ecole;
-    }
-
-    public void setEcole(String ecole) {
-        this.ecole = ecole;
-    }
-
-    public Date getDateNaissance() {
-        return dateNaissance;
-    }
-
-    public void setDateNaissance(Date dateNaissance) {
-        this.dateNaissance = dateNaissance;
-    }
-    
 }

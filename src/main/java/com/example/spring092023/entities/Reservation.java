@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -24,38 +25,10 @@ public class Reservation implements Serializable {
     private Boolean estValide;
 
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    private Set<Etudiant> etudiants;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToMany()
+    private List<Etudiant> etudiants;
+    @ManyToOne()
     Chambre chambre;
 
 
-
-
-
-
-    // Constructeur et accesseurs (getters) et mutateurs (setters)
-    public String getIdReservation() {
-        return idReservation;
-    }
-
-    public void setIdReservation(String idReservation) {
-        this.idReservation = idReservation;
-    }
-
-    public Date getAnneeUniversitaire() {
-        return anneeUniversitaire;
-    }
-
-    public void setAnneeUniversitaire(Date anneeUniversitaire) {
-        this.anneeUniversitaire = anneeUniversitaire;
-    }
-
-    public Boolean getEstValide() {
-        return estValide;
-    }
-
-    public void setEstValide(Boolean estValide) {
-        this.estValide = estValide;
-    }
 }
