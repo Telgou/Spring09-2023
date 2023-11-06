@@ -37,7 +37,7 @@ public class FoyerService implements iFoyerService{
     }
     public void archiverFoyer (long idFoyer){
         Foyer foyer = foyerRespository.findById(idFoyer).get();
-        foyer.setArchived();
+        foyer.setArchived(true);
         foyerRespository.save(foyer);
     };
 

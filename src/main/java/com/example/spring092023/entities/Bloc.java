@@ -25,17 +25,8 @@ public class Bloc implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL ,mappedBy="bloc")
     private List<Chambre> chambres;
-    @ManyToOne()
+    @ManyToOne( )
     Foyer foyer;
 
 
-
-    // Constructeur et accesseurs (getters) et mutateurs (setters)
-
-    public List<Chambre> getchambreslist() {
-        return chambres;
-    }
-    public void setchambres(List<Chambre> chambres) {
-        this.chambres = chambres;
-    }
 }

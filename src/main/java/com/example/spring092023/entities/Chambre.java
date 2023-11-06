@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.lang.reflect.Type;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -25,41 +26,10 @@ public class Chambre implements Serializable {
     private TypeChambre typeC;
 
 
-    @OneToMany()
-    private Set<Reservation> Reservations;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Reservation> Reservations;
+    @ManyToOne()
     Bloc bloc;
 
 
-
-
-
-    // Constructeur et accesseurs (getters) et mutateurs (setters)
-    public Long getIdChambre() {
-        return idChambre;
-    }
-
-    public void setIdChambre(Long idChambre) {
-        this.idChambre = idChambre;
-    }
-
-    public void setBloc(Bloc bloc) {
-        this.bloc = bloc;
-    }
-
-    public Long getNumeroChambre() {
-        return numeroChambre;
-    }
-
-    public void setNumeroChambre(Long numeroChambre) {
-        this.numeroChambre = numeroChambre;
-    }
-
-    public TypeChambre getTypeC() {
-        return typeC;
-    }
-
-    public void setTypeC(TypeChambre typeC) {
-        this.typeC = typeC;
-    }
 }
