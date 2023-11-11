@@ -47,12 +47,14 @@ public class EtudiantService implements iEtudiantService{
         etudiantRespository.saveAll(etudiants);
     }
 
-    public Etudiant affecterEtudiantAReservation(String nomEt , String prenomEt , Long idReservation ){
+    public Etudiant affecterEtudiantAReservation(String nomEt , String prenomEt , String idReservation ){
         Etudiant etudiant = etudiantRespository.findEtudiantByNomEtAndAndPrenomEt(nomEt,prenomEt);
-        Reservation reservation = reservationRespository.findById(idReservation).get();
+        Reservation reservation = reservationRespository.findReservationByIdReservation(idReservation);
 
-        List<Etudiant> etudiants = reservation.getEtudiants();
-        etudiant.setReservations(Arrays.asList(reservation));
+        List<Reservation> reservations = etudiant.getReservations();
+        reservations.add(reservation);
+        etudiant.setReservations(reservations);
+        reservation.getEtudiants().add(etudiant);
         return etudiantRespository.save(etudiant);
     }
 

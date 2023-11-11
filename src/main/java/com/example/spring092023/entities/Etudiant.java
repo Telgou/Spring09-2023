@@ -1,27 +1,24 @@
 package com.example.spring092023.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Table( name = "Etudiant")
 public class Etudiant implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name="idEtudiant")
-    private Long idEtudiant; // Clé primaire
+    private Long idEtudiant;
     private String nomEt;
     private String prenomEt;
     private Long cin;
@@ -29,8 +26,10 @@ public class Etudiant implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dateNaissance;
 
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL ,mappedBy="etudiants",fetch = FetchType.EAGER)
     private List<Reservation> reservations;
+
 
 
 }

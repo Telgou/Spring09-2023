@@ -1,20 +1,17 @@
 package com.example.spring092023.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
-import java.lang.reflect.Type;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Table( name = "Chambre")
 public class Chambre implements Serializable {
     @Id
@@ -28,8 +25,10 @@ public class Chambre implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<Reservation> Reservations;
+    @JsonIgnore
     @ManyToOne()
     Bloc bloc;
+
 
 
 }

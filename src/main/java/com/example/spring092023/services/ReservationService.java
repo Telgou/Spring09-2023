@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import com.example.spring092023.entities.Reservation;
 import com.example.spring092023.repositories.ReservationRespository;
 
+import java.util.Date;
 import java.util.List;
 @Service
 @AllArgsConstructor
@@ -36,4 +37,9 @@ public class ReservationService implements  iReservationService{
         reservationRespository.deleteById(idReservation);
 
     }
+    @Override
+    public List<Reservation> getReservationParAnneeUniversitaire(Date dateDebut , Date dateFin ){
+        return (reservationRespository.findReservationByAnneeUniversitaire(dateDebut,dateFin));
+    }
+
 }

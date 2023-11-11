@@ -1,14 +1,25 @@
 package controller;
 
+import com.example.spring092023.entities.Reservation;
 import com.example.spring092023.services.ReservationService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.*;
 import com.example.spring092023.services.iReservationService;
+
+import java.util.Date;
+import java.util.List;
 
 @RestController
 @AllArgsConstructor
 @RequestMapping("/reservations")
 public class ReservationController {
     private ReservationService reservationService;
+
+    @GetMapping("/byyear")
+    public List<Reservation> getReservationParAnneeUniversitaire(@RequestParam(name = "dateDebut") @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateDebut,
+                                                                 @RequestParam(name = "dateFin") @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateFin) {
+        return reservationService.getReservationParAnneeUniversitaire(dateDebut, dateFin);
+    }
+
 }

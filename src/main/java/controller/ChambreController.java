@@ -2,6 +2,7 @@ package controller;
 
 import com.example.spring092023.entities.Bloc;
 import com.example.spring092023.entities.Chambre;
+import com.example.spring092023.entities.TypeChambre;
 import com.example.spring092023.services.ChambreService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -21,9 +22,15 @@ public class ChambreController {
         return chambreService.affecterChambresABloc(numchambre,nombloc);
     }
     @PostMapping("/chambresbyblocnom/{nombloc}")
-    public List<Chambre> setchambres(@PathVariable("nombloc") String nombloc) {
+    public List<Chambre> getchambresparnombloc(@PathVariable("nombloc") String nombloc) {
         return chambreService.getChambresParNomBloc(nombloc);
     }
+
+    @PostMapping("/numchambres/{idbloc}/{type}")
+    public long getnumberofchambres(@PathVariable("idbloc") long idbloc,@PathVariable("type") TypeChambre type) {
+        return chambreService.nbChambreParTypeEtBloc(type,idbloc);
+    }
+
 
 
 }

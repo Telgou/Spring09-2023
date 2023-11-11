@@ -43,7 +43,7 @@ public class EtudiantController {
     }
 
     @PostMapping("/affecterreservation/{nom}/{prenom}/{id}")
-    public void affecterreservation(@PathVariable Long id,@PathVariable String nom,@PathVariable String prenom) {
+    public void affecterreservation(@PathVariable String nom,@PathVariable String prenom,@PathVariable String id) {
         etudiantService.affecterEtudiantAReservation(nom,prenom,id);
     }
 

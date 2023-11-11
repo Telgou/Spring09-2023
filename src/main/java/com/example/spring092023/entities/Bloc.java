@@ -1,9 +1,7 @@
 package com.example.spring092023.entities;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.List;
@@ -13,6 +11,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Table( name = "Bloc")
 public class Bloc implements Serializable {
     @Id
@@ -22,11 +21,13 @@ public class Bloc implements Serializable {
     private String nomBloc;
     private Long capaciteBloc;
 
-
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL ,mappedBy="bloc")
     private List<Chambre> chambres;
+    @JsonIgnore
     @ManyToOne( )
     Foyer foyer;
+
 
 
 }

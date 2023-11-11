@@ -1,5 +1,8 @@
 package com.example.spring092023.services;
 
+import com.example.spring092023.entities.Bloc;
+import com.example.spring092023.entities.Chambre;
+import com.example.spring092023.repositories.BlocRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import com.example.spring092023.entities.Foyer;
@@ -11,6 +14,8 @@ import java.util.List;
 public class FoyerService implements iFoyerService{
 
     private final FoyerRespository foyerRespository;
+    private final BlocRepository blocRepository;
+
     @Override
     public List<Foyer> retrieveAllFoyers() {
         return foyerRespository.findAll();
@@ -42,7 +47,13 @@ public class FoyerService implements iFoyerService{
     };
 
     public Foyer addFoyerwithBloc(Foyer foyer){
-        return (foyerRespository.save(foyer));
+        Foyer f1=foyerRespository.save(foyer);
+        List<Bloc> blocs = f1.getBloc();
+        for (Bloc bloc : blocs) {
+            bloc.setFoyer(f1);
+        }
+        blocRepository.saveAll(blocs);
+        return(f1);
     }
 
 }

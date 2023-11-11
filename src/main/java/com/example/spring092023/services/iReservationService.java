@@ -2,6 +2,7 @@ package com.example.spring092023.services;
 
 import com.example.spring092023.entities.Reservation;
 
+import java.util.Date;
 import java.util.List;
 
 public interface iReservationService {
@@ -15,5 +16,8 @@ public interface iReservationService {
     Reservation retrieveReservation(Long idReservation);
 
     void removeReservation(Long idReservation);
+
+    List<Reservation> getReservationParAnneeUniversitaire(Date dateDebut , Date dateFin );
+
 
 }

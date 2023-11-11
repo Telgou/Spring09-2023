@@ -1,6 +1,7 @@
 package com.example.spring092023.services;
 
 import com.example.spring092023.entities.Bloc;
+import com.example.spring092023.entities.TypeChambre;
 import com.example.spring092023.repositories.BlocRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -56,6 +57,13 @@ public class ChambreService implements iChambreService{
     public List<Chambre> getChambresParNomBloc ( String nomBloc ){
         List<Chambre> chambres = chambreRepository.findChambreByBlocNomBloc(nomBloc);
         return chambres;
+    }
+
+    @Override
+    public long nbChambreParTypeEtBloc(TypeChambre type, long idBloc ){
+        long x= 0;
+        x = chambreRepository.findnumberofchambres(idBloc,type);
+        return (x);
     }
 
 
