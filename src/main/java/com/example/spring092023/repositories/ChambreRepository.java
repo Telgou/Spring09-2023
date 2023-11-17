@@ -5,6 +5,8 @@ import com.example.spring092023.entities.*;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.time.Year;
+import java.util.Date;
 import java.util.List;
 
 public interface ChambreRepository extends JpaRepository<Chambre,Long> {
@@ -21,5 +23,12 @@ public interface ChambreRepository extends JpaRepository<Chambre,Long> {
 
     @Query("SELECT count(c) FROM Chambre c WHERE c.bloc.idBloc = :idbloc AND c.typeC= :type ")
     long findnumberofchambres(@Param("idbloc") Long idbloc,@Param("type") TypeChambre type);
+
+    @Query("SELECT count(c) FROM Chambre c WHERE c.typeC= :type ")
+    long findnumberofchambresbyptype(@Param("type") TypeChambre type);
+
+    @Query("SELECT COUNT(r) FROM Chambre c JOIN c.Reservations r WHERE c = :chambre and YEAR(r.anneeUniversitaire) = :year")
+    Long findReservationsByYear(@Param("chambre") Chambre chambre, @Param("year") int year);
+
 
 }

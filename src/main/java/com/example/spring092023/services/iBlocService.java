@@ -16,4 +16,5 @@ public interface iBlocService {
 
     void removeBloc(Long idBloc);
 
+    void listeChambresParBloc();
 }

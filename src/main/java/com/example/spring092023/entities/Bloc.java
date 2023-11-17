@@ -22,7 +22,7 @@ public class Bloc implements Serializable {
     private Long capaciteBloc;
 
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL ,mappedBy="bloc")
+    @OneToMany(cascade = CascadeType.ALL ,fetch = FetchType.EAGER,mappedBy="bloc")
     private List<Chambre> chambres;
     @JsonIgnore
     @ManyToOne( )

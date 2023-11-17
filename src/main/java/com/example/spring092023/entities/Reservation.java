@@ -1,4 +1,5 @@
 package com.example.spring092023.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,6 +25,7 @@ public class Reservation implements Serializable {
 
     @ManyToMany()
     private List<Etudiant> etudiants;
+    @JsonIgnore
     @ManyToOne()
     Chambre chambre;
 

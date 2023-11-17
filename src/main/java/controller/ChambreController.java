@@ -31,6 +31,11 @@ public class ChambreController {
         return chambreService.nbChambreParTypeEtBloc(type,idbloc);
     }
 
+    @PostMapping("/reservachambre/{idchambre}/{idreservation}")
+    public Chambre affecterReservationAChambre(@PathVariable("idchambre") long idchambre,@PathVariable("idreservation") String idreservation) {
+        return chambreService.affecterReservationAChambre(idchambre,idreservation);
+    }
+
 
 
 }

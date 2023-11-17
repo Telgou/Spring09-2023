@@ -23,7 +23,7 @@ public class Chambre implements Serializable {
     private TypeChambre typeC;
 
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Reservation> Reservations;
     @JsonIgnore
     @ManyToOne()
