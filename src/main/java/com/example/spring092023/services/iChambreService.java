@@ -31,4 +31,6 @@ public interface iChambreService {
 
     void nbPlacesDisponibleParChambreAnneeEnCours();
 
+    List<Chambre> getChambresNonReserveParNomFoyerEtTypeChambre( String nomFoyer,TypeChambre type) ;
+
 }

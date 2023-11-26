@@ -16,6 +16,13 @@ import java.util.Map;
 public class ChambreController {
     private ChambreService chambreService;
 
+
+    @PostMapping("/nonreserv/{nomfoyer}/{typec}")
+    public List<Chambre> getchambresnonreserveparNomFoyerTypeC(@PathVariable("nomfoyer") String nomfoyer, @PathVariable("typec") TypeChambre typec) {
+        return chambreService.getChambresNonReserveParNomFoyerEtTypeChambre(nomfoyer,typec);
+    }
+
+
     @PostMapping("/setchambres/{nombloc}")
     public Bloc setchambres(@PathVariable("nombloc") String nombloc, @RequestBody Map<String, List<Long>> requestBody) {
         List<Long> numchambre = requestBody.get("numchambre");

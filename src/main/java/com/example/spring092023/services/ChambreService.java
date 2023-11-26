@@ -4,6 +4,7 @@ import com.example.spring092023.entities.Bloc;
 import com.example.spring092023.entities.Reservation;
 import com.example.spring092023.entities.TypeChambre;
 import com.example.spring092023.repositories.BlocRepository;
+import com.example.spring092023.repositories.FoyerRespository;
 import com.example.spring092023.repositories.ReservationRespository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,6 +26,7 @@ public class ChambreService implements iChambreService{
     ChambreRepository chambreRepository;
     BlocRepository blocRepository;
     ReservationRespository reservationRespository;
+    FoyerRespository foyerRespository;
     @Override
     public List<Chambre> retrieveAllChambers() {
         return chambreRepository.findAll();
@@ -74,6 +76,11 @@ public class ChambreService implements iChambreService{
         long x= 0;
         x = chambreRepository.findnumberofchambres(idBloc,type);
         return (x);
+    }
+
+    @Override
+    public List<Chambre> getChambresNonReserveParNomFoyerEtTypeChambre( String nomFoyer,TypeChambre type){
+        return foyerRespository.findChambresNONReserveByFoyerNameAndChambresTypeC(nomFoyer,type,Year.now().getValue());
     }
 
     @Override
